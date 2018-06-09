@@ -23,7 +23,7 @@ another projects thet depends of local users to work.
 
 Download lastest release:
 
-    composer create-project thiagogomesverissimo/symfony_traditional_login --prefer-source 
+    composer create-project thiagogomesverissimo/symfony_traditional_login 
     
 Download branch master:
 
