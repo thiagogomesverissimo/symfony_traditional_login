@@ -21,11 +21,13 @@ another projects thet depends of local users to work.
 
 # Deploy
 
-Download:
+Download lastest release:
 
-    git clone git@github.com:thiagogomesverissimo/symfony_traditional_login_form_users_from_db.git
-    cd symfony_traditional_login_form_users_from_db
-    composer install
+    composer create-project thiagogomesverissimo/symfony_traditional_login --prefer-source 
+    
+Download branch master:
+
+    composer create-project thiagogomesverissimo/symfony_traditional_login -s dev
 
 Configure .env variables and run migrations (only for mysql users):
 
