@@ -5,6 +5,8 @@ with users from database on symfony, as described in the
 https://symfony.com/doc/current/security/form_login_setup.html and
 some codes from [symfony demo](https://github.com/symfony/demo)
 
+[![Symfony 4 Traditional Login Form with users from database (migrations available to mysql)](https://img.youtube.com/vi/PxCFsOSG1zg/0.jpg)](https://www.youtube.com/watch?v=PxCFsOSG1zg)
+
 Included:
 
  - login and logout routes configured
@@ -61,7 +63,4 @@ Up server:
     $admin->setPassword($password)
     $em->persist($admin)
     $em->flush()
-    
-# video
-    
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PxCFsOSG1zg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
