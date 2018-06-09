@@ -61,3 +61,7 @@ Up server:
     $admin->setPassword($password)
     $em->persist($admin)
     $em->flush()
+    
+# video
+    
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PxCFsOSG1zg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
