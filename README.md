@@ -1,4 +1,4 @@
-# Symfony 4 Traditional Login Form with user from Mysql Database
+# Symfony 4 Traditional Login Form with users from database (migrations available to mysql)
 
 This project is an basic implementation of traditional login form 
 with users from database on symfony, as described in the
@@ -39,11 +39,11 @@ Up server:
 
 ## Three suggestions to create users on database:
 
-1. To use data fixtures that create two users: *admin* and *user*, same for passwords:
+### 1. To use data fixtures that create two users: *admin* and *user*, same for passwords:
 
-    php bin/console doctrine:fixtures:load
+     php bin/console doctrine:fixtures:load
 
-2. To use command:
+### 2. To use command:
 
     php bin/console app:add-user user user123
     php bin/console app:add-user admin admin123 --admin
@@ -51,7 +51,7 @@ Up server:
     php bin/console app:delete-user admin
     php bin/console app:delete-user user
 
-3. For learning purposes, you can use psysh:
+### 3. For learning purposes, you can use psysh:
 
     bin/console psysh
     $em = $container->get('doctrine')->getManager()
