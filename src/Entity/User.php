@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("username", message="This username exists!")
  */
 class User implements UserInterface
 {
@@ -74,7 +76,7 @@ class User implements UserInterface
 
     public function setRoles($roles)
     {
-        $this->password = $password;
+        $this->roles = $roles;
 
         return $this;
     }

@@ -1,19 +1,20 @@
-# Symfony 4 Traditional Login Form with user from Database
+# Symfony 4 Traditional Login Form with user from Mysql Database
 
 This project is an basic implementation of traditional login form 
 with users from database on symfony, as described in the
-https://symfony.com/doc/current/security/form_login_setup.html.
+https://symfony.com/doc/current/security/form_login_setup.html and
+some codes from [symfony demo](https://github.com/symfony/demo)
 
 Included:
 
  - login and logout routes configured
- - crud for manage users in database
+ - web crud and commands to manage users in database
  - passwords encoded with bcrypt
 
 Not Included:
 
  - Registration to anonymous
- - Area to user to change the own password (for while)
+ - Area to user to change the own password
 
 The main reason for this project is to be a start point to
 another projects thet depends of local users to work.
@@ -26,26 +27,35 @@ Download:
     cd symfony_traditional_login_form_users_from_db
     composer install
 
-Run migrations:
+Configure .env variables and run migrations (only for mysql users):
 
     php bin/console doctrine:migrations:migrate
-
-Create a user *admin* with password *admin* to manage the others:
-
-    php bin/console doctrine:fixtures:load
-
-If you prefer to create the user with console:
-
-    bin/console psysh
-    $em = $container->get('doctrine')->getManager()
-    $admin = new App\Entity\User
-    $admin->setUsername('admin')
-    $password = $container->get('security.password_encoder')->encodePassword($jose, 'admin')
-    $admin->setPassword($password)
-    $em->persist($admin)
-    $em->flush()
 
 Up server:
 
     php bin/console server:run
 
+## Three suggestions to create users on database:
+
+1. To use data fixtures that create two users: *admin* and *user*, same for passwords:
+
+    php bin/console doctrine:fixtures:load
+
+2. To use command:
+
+    php bin/console app:add-user user user123
+    php bin/console app:add-user admin admin123 --admin
+    php bin/console app:list-users
+    php bin/console app:delete-user admin
+    php bin/console app:delete-user user
+
+3. For learning purposes, you can use psysh:
+
+    bin/console psysh
+    $em = $container->get('doctrine')->getManager()
+    $admin = new App\Entity\User
+    $admin->setUsername('admin')
+    $password = $container->get('security.password_encoder')->encodePassword($admin, 'admin')
+    $admin->setPassword($password)
+    $em->persist($admin)
+    $em->flush()

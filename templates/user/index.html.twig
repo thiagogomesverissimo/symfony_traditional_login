@@ -5,11 +5,14 @@
 {% block body %}
     <h1>User index</h1>
 
+    <a href="{{ path('index') }}">Return to index</a>
+
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Username</th>
+                <th>Roles</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +21,7 @@
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
+                <td>{{ user.roles|join(', ') }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>

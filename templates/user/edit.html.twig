@@ -10,8 +10,10 @@
 
         {{ form_row(form.username) }}
         <br />
+        {{ form_row(form.roles) }}
+        <br />
         {{ form_row(form.password) }}
-        <p>Deixe em branco para não alterar a senha</p>
+        <span class="help-block">keep blank to not change</span>
         <br />
 
         <button class="btn">{{ button_label|default('Save') }}</button>
